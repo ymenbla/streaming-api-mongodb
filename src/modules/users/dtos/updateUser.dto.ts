@@ -8,7 +8,7 @@ export class UpdateUserDto {
   readonly email: string;
 
   @ApiProperty({ example: 'Abc#123$.' })
-  readonly password: string;
+  password: string;
 
   @ApiProperty({ example: 'Colombia' })
   readonly country: string;
