@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   Body,
   Controller,
   Get,
@@ -32,7 +33,11 @@ export class UsersController {
   // }
   @Post('createOne')
   async create(@Body() createUserDto: CreateUserDto) {
-    return this.usersServices.create(createUserDto);
+    try {
+      return this.usersServices.create(createUserDto);
+    } catch (error) {
+      return new BadRequestException(error);
+    }
   }
 
   @UseGuards(AuthGuard)

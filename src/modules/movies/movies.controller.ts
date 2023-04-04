@@ -1,24 +1,15 @@
-import { Controller, Get, Param, Query, UseGuards } from '@nestjs/common';
-import { AuthGuard } from '../auth/guards/auth.guard';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { MoviesService } from './movies.service';
-import { QryFindAllMovie, QrySearchMovie } from '../../helpers/movies.helper';
+import { QryFindAllMovie } from '../../helpers/movies.helper';
 
-// @UseGuards(AuthGuard)
 @ApiTags('Movies')
 @Controller('movies')
 export class MoviesController {
   constructor(private readonly moviesServices: MoviesService) {}
-  @Get('search/example')
-  async searchExample() {
-    return this.moviesServices.searchExample();
-  }
 
   @Get('search/:language/:filter')
-  async serach(
-    @Param('filter') filter: string,
-    @Param('language') language: string,
-  ) {
+  async serach(@Param('filter') filter: string, @Param('language') language: string) {
     return this.moviesServices.search(language, filter);
   }
 

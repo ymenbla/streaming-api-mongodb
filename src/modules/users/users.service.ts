@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
@@ -22,6 +22,10 @@ export class UsersService {
   }
 
   async create(createUserDto: CreateUserDto): Promise<User> {
+    const emailExists = await this.findByEmail(createUserDto.email);
+    if (emailExists) {
+      throw new BadRequestException(`The Email ${emailExists} already exists`);
+    }
     if (createUserDto.password) {
       createUserDto.password = await bcrypt.hash(createUserDto.password, 10);
     }

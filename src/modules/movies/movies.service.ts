@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
-import { AxiosError, AxiosResponse } from 'axios';
-import { Observable, catchError, firstValueFrom } from 'rxjs';
+import { AxiosError } from 'axios';
+import { catchError, firstValueFrom } from 'rxjs';
 import 'dotenv/config';
 
 @Injectable()
@@ -61,7 +61,4 @@ export class MoviesService {
     );
     return data;
   }
-  // async findAllListFavorite(): Promise<any> {}
-  // async findAllFavorite(): Promise<any> {}
-  // async createFavorite(): Promise<any> {}
 }
