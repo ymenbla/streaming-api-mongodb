@@ -3,19 +3,23 @@ import { Document } from 'mongoose';
 
 export type UserDocument = User & Document;
 
-@Schema()
+@Schema({
+  timestamps: true,
+})
 export class User {
-  // @Prop()
-  // _id: string;
-  @Prop()
+  @Prop({ maxlength: 100 })
   name: string;
-  @Prop()
+  @Prop({
+    unique: true,
+    required: true,
+    match: /.+\@.+\..+/,
+  })
   email: string;
-  @Prop()
+  @Prop({ required: true, select: false })
   password: string;
   @Prop()
   country: string;
-  @Prop()
+  @Prop({ default: 'Inactive' })
   state: string;
 }
 

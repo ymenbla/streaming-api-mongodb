@@ -1,11 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 export class UpdateUserDto {
-
   @ApiProperty({ example: 'Yefry Mendoza' })
   readonly name: string;
-
-  @ApiProperty({ example: 'ing.yefrymendoza@gmail.com' })
-  readonly email: string;
 
   @ApiProperty({ example: 'Abc#123$.' })
   password: string;
@@ -13,6 +9,6 @@ export class UpdateUserDto {
   @ApiProperty({ example: 'Colombia' })
   readonly country: string;
 
-  @ApiProperty({ example: 'Activo' })
+  @ApiProperty({ example: 'Active' })
   readonly state: string;
 }

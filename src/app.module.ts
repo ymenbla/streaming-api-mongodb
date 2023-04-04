@@ -7,12 +7,14 @@ import { UsersModule } from './modules/users/users.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { AuthMiddleware } from './modules/auth/middleware/auth.middleware';
 import { AuthService } from './modules/auth/auth.service';
+import { MoviesModule } from './modules/movies/movies.module';
 
 @Module({
   imports: [
     MongooseModule.forRoot(process.env.DB_URI),
     UsersModule,
     AuthModule,
+    MoviesModule,
   ],
   controllers: [AppController],
   providers: [AppService, AuthService],

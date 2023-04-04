@@ -32,4 +32,12 @@ export class AuthService {
     }
     return null;
   }
+
+  async isUserActive(email: string) {
+    const user = await this.usersService.findByEmail(email);
+    if (user.state.toUpperCase() === 'ACTIVE') {
+      return true;
+    }
+    return false;
+  }
 }
