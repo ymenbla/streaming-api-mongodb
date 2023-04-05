@@ -2,5 +2,13 @@
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },
-    "eslint.validate": ["typescript", "javascript"]
+    "eslint.validate": [
+        "typescript",
+        "javascript"
+    ],
+    "docwriter.style": "Auto-detect",
+    "docwriter.progress.trackMethods": true,
+    "docwriter.progress.trackClasses": true,
+    "docwriter.hotkey.windows": "Alt + .",
+    "docwriter.language": "English"
 }
